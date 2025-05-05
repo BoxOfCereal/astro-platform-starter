@@ -1,8 +1,54 @@
 ---
+import Layout from '../layouts/Layout.astro';
 const { frontmatter } = Astro.props;
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    }).format(date);
+}
 ---
 
-<meta charset="utf-8" />
-<h1>{frontmatter.title}</h1>
-<p>Written by {frontmatter.author}</p>
-<slot />
+<Layout title={frontmatter.title}>
+    <div itemscope itemtype="https://schema.org/NewsArticle">
+        <div itemprop="headline">{frontmatter.title}</div>
+        <meta itemprop="image" content="https://example.com/photos/1x1/photo.jpg" />
+        <meta itemprop="image" content="https://example.com/photos/4x3/photo.jpg" />
+        <img itemprop="image" src="https://example.com/photos/16x9/photo.jpg" />
+        <div>
+            <span itemprop="datePublished" content={frontmatter.pubDate}>
+                {formatDate(frontmatter.pubDate)}
+            </span>
+            (last modified
+            <span itemprop="dateModified" content={frontmatter.pubDate}>
+                {formatDate(frontmatter.pubDate)}
+            </span>
+            )
+        </div>
+        <div>
+            by
+            <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                <a itemprop="url" href="https://example.com/profile/janedoe123">
+                    <span itemprop="name">{frontmatter.author}</span>
+                </a>
+            </span>
+        </div>
+        <div>
+            <span itemprop="description">{frontmatter.description}</span>
+        </div>
+        <div>
+            <span itemprop="tags">{frontmatter.tags.join(', ')}</span>
+        </div>
+        <div>
+            <span itemprop="image">{frontmatter.image.url}</span>
+        </div>
+        <div>
+            <div itemprop="articleBody">
+                <slot />
+            </div>
+        </div>
+    </div>
+</Layout>
