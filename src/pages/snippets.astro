@@ -1,0 +1,161 @@
+---
+import SpaceHeyLayout from '../layouts/SpaceHeyLayout.astro';
+---
+
+<SpaceHeyLayout title="SpaceHey Snippets">
+    <h1>Snippits</h1>
+    <p>Snippits are small pieces of code that can be used to perform specific tasks.</p>
+
+    <h2>spacehey Snippits</h2>
+    <p>Mainly contains css snippets for use in modifying spacehey profiles</p>
+
+    <h3>Profile Snippits</h3>
+    <p></p>
+    <h4>Contacting header</h4>
+    <h5>Copied css selector</h5>
+    <style>
+        .contact > div:nth-child(1) {
+            background-image: url('https://postimg.cc/dLxKW2Dk');
+        }
+    </style>
+    <h5>css selector</h5>
+    <style>
+        .profile .contact .heading {
+            background-image: url('https://postimg.cc/dLxKW2Dk');
+        }
+    </style>
+
+    <h3>General Snippits</h3>
+    <p></p>
+    <h4>Background Image</h4>
+    <style>
+        .profile .blurbs .heading {
+            background-image: url('https://postimg.cc/dLxKW2Dk');
+        }
+    </style>
+
+    <h3>Headers</h3>
+    <!-- Blurbs -->
+    <div>
+        <h4>Blurbs</h4>
+        <p></p>
+
+        <h5>Basic</h5>
+        <code>
+            <style>
+                .profile .blurbs .heading {
+                    background-image: url('https://picsum.photos/500/50');
+                }
+            </style>
+        </code>
+        <h5>Advanced</h5>
+        <code>
+            <style>
+                .profile .blurbs .heading {
+                    background-image: url('https://picsum.photos/500/50');
+                    background-size: cover; /* Optional: make the image cover the element */
+                    background-repeat: no-repeat; /* Optional: prevent tiling when the image is smaller than the element */
+                    background-position: center; /* Optional: center the image */
+                    background-attachment: fixed; /* Optional: make the image fixed */
+                    background-blend-mode: multiply; /* Optional: blend the image with the background */
+                    /* background-color: rgba(255, 255, 255, 0.5); Optional: add a background color */
+                }
+            </style>
+        </code>
+        <h5>further reading</h5>
+        <p></p>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-size">background-size</a>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat">background-repeat</a>
+    </div>
+
+    <!-- Friends -->
+    <div>
+        <h3>Friends</h3>
+
+        <h4>wrong</h4>
+        <code>
+            <style>
+                .profile .friends .heading {
+                    background-image: url('https://placehold.co/500x50.png');
+                }
+            </style>
+        </code>
+
+        <h4>Basic</h4>
+        <code>
+            <style>
+                .profile .friends:not(#comments) .heading {
+                    background-image: url('https://placehold.co/500x50.png');
+                }
+            </style>
+        </code>
+        <h4>Basic (Copy the css selector)</h4>
+        <code>
+            <style>
+                div.friends:nth-child(4) > div:nth-child(1) {
+                    background-image: url('https://placehold.co/500x50.png');
+                }
+            </style>
+        </code>
+        <h4>Advanced</h4>
+        <code>
+            <style>
+                .profile .friends:not(#comments) .heading {
+                    background-image: url('https://picsum.photos/500/50');
+                    background-size: cover !important; /* Optional: make the image cover the element */
+                    background-repeat: no-repeat !important; /* Optional: prevent tiling when the image is smaller than the element */
+                }
+            </style>
+        </code>
+    </div>
+
+    <div>
+        <h3>Comments</h3>
+        <p></p>
+
+        <h4>Basic</h4>
+        <code>
+            <style>
+                .profile #comments .heading {
+                    background-image: url('https://picsum.photos/500/50');
+                }
+            </style>
+        </code>
+        <h4>Advanced</h4>
+        <code>
+            <style>
+                .profile #comments .heading {
+                    background-image: url('https://picsum.photos/500/50');
+                    background-size: cover !important; /* Optional: make the image cover the element */
+                    background-repeat: no-repeat !important; /* Optional: prevent tiling when the image is smaller than the element */
+                }
+            </style>
+        </code>
+    </div>
+
+    <div>
+        <h3>How to add a background images to All Headers (orange)</h3>
+        <p></p>
+
+        <h4>Basic</h4>
+        <code>
+            <style>
+                .profile .blurbs .heading,
+                .profile .friends .heading {
+                    background-image: url('https://picsum.photos/500/50');
+                }
+            </style>
+        </code>
+        <h4>Advanced</h4>
+        <code>
+            <style>
+                .profile .blurbs .heading,
+                .profile .friends .heading {
+                    background-image: url('https://picsum.photos/500/50');
+                    background-size: cover !important; /* Optional: make the image cover the element */
+                    background-repeat: no-repeat !important; /* Optional: prevent tiling when the image is smaller than the element */
+                }
+            </style>
+        </code>
+    </div>
+</SpaceHeyLayout>

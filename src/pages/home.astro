@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Markdown from '../components/Markdown.astro';
+
+const explainer = `
+Home
+`;
+---
+
+<Layout title="Home">
+    <h1 class="mb-10">Home</h1>
+    <Markdown content={explainer} class="mb-10 text-lg" />
+</Layout>

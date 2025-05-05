@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Markdown from '../components/Markdown.astro';
+
+/**
+ * Takeaways
+ * Define variables in your Astro script using JavaScript or TypeScript expressions.
+ * Use these variables in your Astro template inside curly braces { } to tell Astro you’re using some JavaScript.
+ */
+
+const about = `
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+`;
+
+const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Express', 'Git', 'GitHub', 'Astro', '11ty', 'Netlify', 'TailwindCSS', 'Decap'];
+
+const skillColor = 'black';
+const skillBgColor = 'white';
+---
+
+<!-- Local css. I believe this only affects this specific component and visually inspecting it agrees with my assumption. -->
+<style define:vars={{ skillColor, skillBgColor }}>
+    /* define:vars is a special attribute that allows you to define CSS variables in your Astro component. */
+    h1 {
+        color: var(--color-black);
+    }
+    .skill {
+        color: var(--skillColor);
+        background-color: var(--skillBgColor);
+    }
+</style>
+
+<Layout title="About">
+    <h1 class="mb-10">About</h1>
+    <Markdown content={about} class="mb-10 text-lg" />
+    <h2>Skills</h2>
+    <ul class="flex flex-wrap gap-2">
+        {skills.map((skill) => <li class="px-2 py-1 bg-white/10 rounded skill">{skill}</li>)}
+    </ul>
+    <!-- Conditionally render -->
+    <p>{skills.length > 5 ? 'You have a lot of skills!' : 'You have a few skills.'}</p>
+</Layout>
