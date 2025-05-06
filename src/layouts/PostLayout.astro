@@ -13,7 +13,7 @@ function formatDate(dateString) {
 ---
 
 <Layout title={frontmatter.title}>
-    <div itemscope itemtype="https://schema.org/NewsArticle">
+    <div itemscope itemtype="https://schema.org/BlogPosting">
         <div itemprop="headline">{frontmatter.title}</div>
         <meta itemprop="image" content="https://example.com/photos/1x1/photo.jpg" />
         <meta itemprop="image" content="https://example.com/photos/4x3/photo.jpg" />
@@ -23,15 +23,15 @@ function formatDate(dateString) {
                 {formatDate(frontmatter.pubDate)}
             </span>
             (last modified
-            <span itemprop="dateModified" content={frontmatter.pubDate}>
-                {formatDate(frontmatter.pubDate)}
+            <span itemprop="dateModified" content={frontmatter.lastMod}>
+                {formatDate(frontmatter.lastMod)}
             </span>
             )
         </div>
         <div>
             by
             <span itemprop="author" itemscope itemtype="https://schema.org/Person">
-                <a itemprop="url" href="https://example.com/profile/janedoe123">
+                <a itemprop="url" href="/about">
                     <span itemprop="name">{frontmatter.author}</span>
                 </a>
             </span>

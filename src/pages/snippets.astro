@@ -13,11 +13,13 @@ import SpaceHeyLayout from '../layouts/SpaceHeyLayout.astro';
     <p></p>
     <h4>Contacting header</h4>
     <h5>Copied css selector</h5>
+    ```html
     <style>
         .contact > div:nth-child(1) {
             background-image: url('https://postimg.cc/dLxKW2Dk');
         }
     </style>
+    ```
     <h5>css selector</h5>
     <style>
         .profile .contact .heading {
@@ -31,6 +33,40 @@ import SpaceHeyLayout from '../layouts/SpaceHeyLayout.astro';
     <style>
         .profile .blurbs .heading {
             background-image: url('https://postimg.cc/dLxKW2Dk');
+        }
+    </style>
+
+    <h4>Interests Section</h4>
+    <style>
+        /* CSS Variables */
+        /* palette: https://coolors.co/palette/8ecae6-219ebc-023047-ffb703-fb8500 */
+        :root {
+            --sky-blue: #8ecae6ff;
+            --blue-green: #219ebcff;
+            --prussian-blue: #023047ff;
+            --selective-yellow: #ffb703ff;
+            --ut-orange: #fb8500ff;
+        }
+
+        /* Table css: https://www.w3schools.com/Css/css_table.asp */
+
+        /* == Interests Table == */
+        .profile .table-section {
+            border: 2px solid #023047ff;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            box-shadow: 0 0 10px #023047ff;
+        }
+
+        .profile .table-section .heading {
+            background-color: #219ebcff;
+            color: #023047ff;
+        }
+
+        .details-table td:first-child {
+            background-color: #219ebcff;
+            color: #023047ff;
         }
     </style>
 

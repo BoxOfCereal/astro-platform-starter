@@ -1,0 +1,12 @@
+{
+  "name": "Hole In Dungeon 0.1.0",
+  "short_name": "Hole In Dungeon 0.1.0",
+  "id": "com.example.gamename",
+  "description": "A golf puzzle crawler.",
+  "orientation": "any",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "black",
+  "categories": ["games", "entertainment"],
+  "icons": []
+}

@@ -1,6 +1,7 @@
 ---
 title: 'My First Blog Post'
 pubDate: 2025-05-02
+lastMod: 2025-05-02
 description: 'This is the first post of my new Astro blog.'
 author: 'NS'
 image:
