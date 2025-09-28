@@ -1,7 +1,7 @@
 ---
 title: 'VibeCode01'
 pubDate: 2025-05-10
-lastMod: 2025-05-10
+lastMod: 2025-05-16
 description: 'VibeCode01'
 image:
   url: ''

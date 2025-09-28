@@ -1,8 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from './Layout.astro';
 const { frontmatter } = Astro.props;
 
 function formatDate(dateString) {
+    if (!dateString) return '';
     const date = new Date(dateString);
     return new Intl.DateTimeFormat('en-US', {
         year: 'numeric',
@@ -22,11 +23,16 @@ function formatDate(dateString) {
             <span itemprop="datePublished" content={frontmatter.pubDate}>
                 {formatDate(frontmatter.pubDate)}
             </span>
-            (last modified
-            <span itemprop="dateModified" content={frontmatter.lastMod}>
-                {formatDate(frontmatter.lastMod)}
-            </span>
-            )
+            {
+                frontmatter.lastMod && (
+                    <>
+                        (last modified
+                        <span itemprop="dateModified" content={frontmatter.lastMod}>
+                            {formatDate(frontmatter.lastMod)}
+                        </span>
+                    </>
+                )
+            }
         </div>
         <div>
             by
