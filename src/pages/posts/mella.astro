@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/PostLayout.astro';
+import { Image } from 'astro:assets';
+import mellaImage1 from '../../assets/mella/mella (1).jpg';
+import mellaImage2 from '../../assets/mella/mella (2).jpg';
+import mellaImage3 from '../../assets/mella/mella (3).jpg';
+import mellaImage4 from '../../assets/mella/mella (4).jpg';
+
+const IMAGE_SIZE = {
+    width: 800 / 2,
+    height: 600 / 2
+};
+
+const IMAGE_PROPS = {
+    loading: 'lazy',
+    decoding: 'async',
+    class: 'max-w-full h-auto rounded-lg',
+    width: IMAGE_SIZE.width,
+    height: IMAGE_SIZE.height,
+    formats: ['avif', 'webp', 'jpg'],
+    quality: 80
+};
+
+const postData = {
+    title: 'Little Hippo - Mella',
+    description: 'Tear down of the little hippo mella alarm clock',
+    image: {
+        url: '/assets/mella/mella (1).jpg',
+        alt: 'Little Hippo Mella Alarm Clock Teardown'
+    },
+    pubDate: '2025-09-27',
+    tags: ['teardown', 'circuit bending']
+};
+---
+
+<Layout frontmatter={postData}>
+    <div class="prose max-w-none">
+        <p>
+            I will be tearing down the little hippo mella alarm clock. I will be posting the teardown process, the circuit bending process, and the audio of the
+            clock. I will also briefly write about what needs to be done to access the firmware and what type of chips are on the board.
+        </p>
+
+        <h2>Teardown</h2>
+
+        <div class="flex justify-center my-8">
+            <Image src={mellaImage1} alt="Little Hippo Mella Teardown" {...IMAGE_PROPS} />
+        </div>
+
+        <figure class="text-center my-8">
+            <Image src={mellaImage2} alt="Close-up of Mella's circuit board" {...IMAGE_PROPS} />
+            <figcaption class="mt-2 italic text-gray-600">Close-up of the Mella's main circuit board</figcaption>
+        </figure>
+    </div>
+</Layout>
+
+<style>
+    .prose {
+        max-width: 65ch;
+    }
+    .prose :where(h2):not(:where([class~='not-prose'] *)) {
+        margin-top: 1.5em;
+        margin-bottom: 0.75em;
+        line-height: 1.5;
+        font-weight: 600;
+    }
+</style>
