@@ -1,19 +1,25 @@
 ---
 import Logo from '../components/Logo.astro';
 
-const pages = await Astro.glob('../pages/*.{astro,md,mdx}');
+const pages = Object.values(await import.meta.glob('../pages/[^_]*.{astro,md,mdx}', { eager: true }));
 const navItems = pages
-  .filter(p => !p.file.includes('[...404]')) // Optionally filter out error pages
-  .map(p => {
-    let href = p.file
-      .replace(/\\/g, '/') // Windows path fix
-      .replace(/^.*\/pages\//, '/')
-      .replace(/\.(astro|mdx?|md)$/, '')
-      .replace(/\/index$/, '/');
-    if (href === '') href = '/';
-    const linkText = href === '/' ? 'Home' : href.replace(/^\//, '').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-    return { linkText, href };
-  });
+    .filter((p) => !p.file.includes('[...404]')) // Optionally filter out error pages
+    .map((p) => {
+        let href = p.file
+            .replace(/\\/g, '/') // Windows path fix
+            .replace(/^.*\/pages\//, '/')
+            .replace(/\.(astro|mdx?|md)$/, '')
+            .replace(/\/index$/, '/');
+        if (href === '') href = '/';
+        const linkText =
+            href === '/'
+                ? 'Home'
+                : href
+                      .replace(/^\//, '')
+                      .replace(/-/g, ' ')
+                      .replace(/\b\w/g, (c) => c.toUpperCase());
+        return { linkText, href };
+    });
 ---
 
 <nav class="flex flex-wrap items-center gap-4 pt-6 pb-16 sm:pt-12 sm:pb-24">

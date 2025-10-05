@@ -1,24 +1,28 @@
 ---
 import Layout from '../../layouts/PostLayout.astro';
 import { Image } from 'astro:assets';
-import mellaImage1 from '../../assets/mella/mella (1).jpg';
-import mellaImage2 from '../../assets/mella/mella (2).jpg';
-import mellaImage3 from '../../assets/mella/mella (3).jpg';
-import mellaImage4 from '../../assets/mella/mella (4).jpg';
-
-const IMAGE_SIZE = {
-    width: 800 / 2,
-    height: 600 / 2
-};
+import mellaImage1 from '../../assets/fixed/mella/mella (1).jpg';
+import mellaImage2 from '../../assets/fixed/mella/mella (2).jpg';
+import mellaImage3 from '../../assets/fixed/mella/mella (3).jpg';
+import mellaImage4 from '../../assets/fixed/mella/mella (4).jpg';
+import mellaImage5 from '../../assets/fixed/mella/mella (5).jpg';
+import mellaImage6 from '../../assets/fixed/mella/mella (6).jpg';
+import mellaImage7 from '../../assets/fixed/mella/mella (7).jpg';
+import mellaImage8 from '../../assets/fixed/mella/mella (8).jpg';
+import mellaImage9 from '../../assets/fixed/mella/mella (9).jpg';
+import mellaImage10 from '../../assets/fixed/mella/mella (10).jpg';
+import mellaImage11 from '../../assets/fixed/mella/mella (11).jpg';
+import mellaImage12 from '../../assets/fixed/mella/mella (12).jpg';
 
 const IMAGE_PROPS = {
     loading: 'lazy',
     decoding: 'async',
-    class: 'max-w-full h-auto rounded-lg',
-    width: IMAGE_SIZE.width,
-    height: IMAGE_SIZE.height,
+    class: 'w-full h-auto rounded-lg',
+    width: '100%',
+    height: '100%',
     formats: ['avif', 'webp', 'jpg'],
-    quality: 80
+    quality: 80,
+    rotate: 0
 };
 
 const postData = {
@@ -35,6 +39,16 @@ const postData = {
 
 <Layout frontmatter={postData}>
     <div class="prose max-w-none">
+        <div class="featured-photos mb-12">
+            <h2 class="text-center mb-6">Featured Images</h2>
+            <div class="flex justify-center">
+                <figure class="m-0">
+                    <Image src={mellaImage1} alt="Little Hippo Mella - Front View" {...IMAGE_PROPS} />
+                    <figcaption class="text-sm text-center mt-2 text-gray-600">Front View</figcaption>
+                </figure>
+            </div>
+        </div>
+
         <p>
             I will be tearing down the little hippo mella alarm clock. I will be posting the teardown process, the circuit bending process, and the audio of the
             clock. I will also briefly write about what needs to be done to access the firmware and what type of chips are on the board.
@@ -42,25 +56,74 @@ const postData = {
 
         <h2>Teardown</h2>
 
-        <div class="flex justify-center my-8">
-            <Image src={mellaImage1} alt="Little Hippo Mella Teardown" {...IMAGE_PROPS} />
-        </div>
+        <p>Here's a look at the initial teardown process:</p>
 
-        <figure class="text-center my-8">
-            <Image src={mellaImage2} alt="Close-up of Mella's circuit board" {...IMAGE_PROPS} />
-            <figcaption class="mt-2 italic text-gray-600">Close-up of the Mella's main circuit board</figcaption>
+        <figure class="my-6">
+            <Image src={mellaImage4} alt="Mella teardown in progress" {...IMAGE_PROPS} />
+            <figcaption class="mt-2 italic text-gray-600 text-center">The Mella alarm clock during teardown</figcaption>
         </figure>
+
+        <figure class="my-8">
+            <Image src={mellaImage5} alt="Mella teardown in progress" {...IMAGE_PROPS} />
+            <figcaption class="mt-2 italic text-gray-600 text-center">The Mella alarm clock during teardown</figcaption>
+        </figure>
+
+        <figure class="my-8">
+            <Image src={mellaImage6} alt="Mella teardown in progress" {...IMAGE_PROPS} />
+            <figcaption class="mt-2 italic text-gray-600 text-center">The Mella alarm clock during teardown</figcaption>
+        </figure>
+
+        <figure class="my-8">
+            <Image src={mellaImage7} alt="Mella teardown in progress" {...IMAGE_PROPS} />
+            <figcaption class="mt-2 italic text-gray-600 text-center">The Mella alarm clock during teardown</figcaption>
+        </figure>
+
+        <figure class="my-8">
+            <Image src={mellaImage8} alt="Mella teardown in progress" {...IMAGE_PROPS} />
+            <figcaption class="mt-2 italic text-gray-600 text-center">The Mella alarm clock during teardown</figcaption>
+        </figure>
+
+        <figure class="my-8">
+            <Image src={mellaImage9} alt="Mella teardown in progress" {...IMAGE_PROPS} />
+            <figcaption class="mt-2 italic text-gray-600 text-center">The Mella alarm clock during teardown</figcaption>
+        </figure>
+
+        <figure class="my-8">
+            <Image src={mellaImage10} alt="Mella teardown in progress" {...IMAGE_PROPS} />
+            <figcaption class="mt-2 italic text-gray-600 text-center">The Mella alarm clock during teardown</figcaption>
+        </figure>
+
+        <figure class="my-8">
+            <Image src={mellaImage11} alt="Mella teardown in progress" {...IMAGE_PROPS} />
+            <figcaption class="mt-2 italic text-gray-600 text-center">The Mella alarm clock during teardown</figcaption>
+        </figure>
+
+        <figure class="my-8">
+            <Image src={mellaImage12} alt="Mella teardown in progress" {...IMAGE_PROPS} />
+            <figcaption class="mt-2 italic text-gray-600 text-center">The Mella alarm clock during teardown</figcaption>
+        </figure>
+
+        <p></p>
     </div>
 </Layout>
 
 <style>
     .prose {
         max-width: 65ch;
+        margin: 0 auto;
     }
     .prose :where(h2):not(:where([class~='not-prose'] *)) {
         margin-top: 1.5em;
         margin-bottom: 0.75em;
         line-height: 1.5;
         font-weight: 600;
+    }
+    .featured-photos {
+        margin: 2rem 0;
+    }
+    @media (max-width: 768px) {
+        .featured-photos {
+            margin: 1rem 0;
+        }
     }
 </style>
