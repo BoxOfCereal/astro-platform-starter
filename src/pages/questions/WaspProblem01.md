@@ -12,6 +12,7 @@ tags:
   - 'blogging'
   - 'learning in public'
 layout: '../../layouts/PostLayout.astro'
+status: 'answered'
 ---
 
 # How to fix `[ Server!] TypeError: Cannot read properties of undefined (reading 'findFirst')`

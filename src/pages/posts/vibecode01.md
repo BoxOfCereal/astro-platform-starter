@@ -1,7 +1,7 @@
 ---
 title: 'VibeCode01'
 pubDate: 2025-05-10
-lastMod: 2025-05-16
+lastMod: 2025-10-05
 description: 'VibeCode01'
 image:
   url: ''
@@ -18,6 +18,8 @@ layout: '../../layouts/PostLayout.astro'
 ---
 
 # Vibe coding more than 50 videos from YouTube API
+
+> Note: This was written a little while ago, and tools have gotten better since then, so some of this may not be necessary.
 
 ## TLDR
 

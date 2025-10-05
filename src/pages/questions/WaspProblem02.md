@@ -17,6 +17,7 @@ tags:
   - 'javascript'
   - 'typescript'
 layout: '../../layouts/PostLayout.astro'
+status: 'answered'
 ---
 
 # How to use a parameter in the url as an argument in a query in the wasp framework?

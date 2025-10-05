@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Markdown from '../components/Markdown.astro';
+
+const explainer = `
+Questions & Answers
+`;
+
+// Import all markdown files from the questions directory
+const allQuestions = await Astro.glob('../pages/questions/*.md');
+
+// Sort questions by date in descending order (newest first)
+const questions = allQuestions
+  .filter(question => !question.file.split('/').pop()?.startsWith('_'))
+  .sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf())
+  .map(question => ({
+    title: question.frontmatter.title || 'Untitled Question',
+    slug: question.file.split('/').pop()?.replace(/\.md$/, ''),
+    date: question.frontmatter.date,
+    description: question.frontmatter.description,
+    status: question.frontmatter.status || 'unanswered' // Added status field for tracking question status
+  }));
+---
+
+<Layout title="Questions & Answers">
+    <h1 class="mb-10">Questions & Answers</h1>
+    <Markdown content={explainer} class="mb-10 text-lg" />
+    <h2>Questions</h2>
+
+    <ul class="space-y-6">
+        {
+            questions.map((question) => (
+                <li class="border-b border-gray-200 pb-4">
+                    <a href={`/questions/${question.slug}`} class="text-blue-600 hover:underline text-xl font-medium">
+                        {question.title}
+                    </a>
+                    <div class="flex items-center gap-2">
+                        {question.date && (
+                            <p class="text-sm text-gray-500 mt-1">
+                                {new Date(question.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                            </p>
+                        )}
+                        <span class="text-xs px-2 py-1 rounded-full" class:list={[
+                            question.status === 'answered' ? 'bg-green-100 text-green-800' : '',
+                            question.status === 'pending' ? 'bg-yellow-100 text-yellow-800' : '',
+                            question.status === 'unanswered' ? 'bg-red-100 text-red-800' : ''
+                        ]}>
+                            {question.status || 'unanswered'}
+                        </span>
+                    </div>
+                    {question.description && (
+                        <p class="text-gray-600 mt-2">{question.description}</p>
+                    )}
+                </li>
+            ))
+        }
+    </ul>
+</Layout>

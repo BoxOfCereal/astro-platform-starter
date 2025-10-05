@@ -1,7 +1,7 @@
 ---
-title: 'Wisdom in Text'
+title: 'How much wisdom or experience is in a piece of text?'
 pubDate: 2025-05-16
-description: 'Blog post about wisdom in text'
+description: 'Blog post about How much wisdom or experience is in a piece of text?'
 author: 'NS'
 image:
   url: 'https://docs.astro.build/assets/rose.webp'
@@ -9,7 +9,7 @@ image:
 tags: ['wisdom', 'learning in public', 'open questions', 'thoughts']
 ---
 
-# Wisdom in Text
+# How much wisdom or experience is in a piece of text?
 
 ## TLDR
 
@@ -17,7 +17,9 @@ I want to know how I can identify how much wisdom a piece of text contains.
 
 ## My thoughts
 
-I don't think this is the same as how much noise or semantic content is in a document.
+This might just be like the same thing as data or semantic content. I don't know.
+
+Sometimes I like to ask silly questions.
 
 A video where someone does something and they teach you some of the intuitions and the insights that they have from doing it; that contains wisdom.
 
