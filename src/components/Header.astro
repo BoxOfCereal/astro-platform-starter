@@ -2,11 +2,19 @@
 import Logo from '../components/Logo.astro';
 
 const pages = Object.values(await import.meta.glob('../pages/[^_]*.{astro,md,mdx}', { eager: true }));
+// Define custom order for specific pages (add more as needed)
+const customOrder = {
+    '/': 0, // Home first
+    '/blog': 1, // Example: About second
+    '/questions': 2 // Example: Contact third
+    // Add other pages with their desired order
+};
+
 const navItems = pages
-    .filter((p) => !p.file.includes('[...404]')) // Optionally filter out error pages
+    .filter((p) => !p.file.includes('[...404]'))
     .map((p) => {
         let href = p.file
-            .replace(/\\/g, '/') // Windows path fix
+            .replace(/\\/g, '/')
             .replace(/^.*\/pages\//, '/')
             .replace(/\.(astro|mdx?|md)$/, '')
             .replace(/\/index$/, '/');
@@ -19,6 +27,17 @@ const navItems = pages
                       .replace(/-/g, ' ')
                       .replace(/\b\w/g, (c) => c.toUpperCase());
         return { linkText, href };
+    })
+    // Sort items: first by custom order, then alphabetically
+    .sort((a, b) => {
+        const orderA = customOrder[a.href] ?? Number.MAX_SAFE_INTEGER;
+        const orderB = customOrder[b.href] ?? Number.MAX_SAFE_INTEGER;
+
+        if (orderA !== orderB) {
+            return orderA - orderB;
+        }
+        // If no custom order, sort alphabetically by link text
+        return a.linkText.localeCompare(b.linkText);
     });
 ---
 
