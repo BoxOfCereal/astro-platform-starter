@@ -1,0 +1,94 @@
+---
+import Layout from '../../layouts/PostLayout.astro';
+
+const title = 'CB Radio Voice Changer Teardown';
+const description = 'Analysis and teardown of a CB radio voice changer module';
+const pubDate = new Date('2025-10-06');
+const tags = ['electronics', 'teardown', 'reverse-engineering', 'audio'];
+const cost = '$5';
+const manufacturer = 'Zuhai Jie Li (http://www.zh-jieli.com/)';
+import { Image } from 'astro:assets';
+
+import voiceChangerImage from '../../assets/fixed/voice-changer/voice_changer_1.jpg';
+
+const postData = {
+    title,
+    description,
+    pubDate,
+    tags,
+    image: {
+        url: voiceChangerImage.src
+    },
+    author: 'Your Name'
+};
+
+const IMAGE_PROPS = {
+    loading: 'lazy',
+    decoding: 'async',
+    class: 'w-full h-auto rounded-lg',
+    width: '100%',
+    height: '100%',
+    formats: ['avif', 'webp', 'jpg'],
+    quality: 80,
+    rotate: 0
+};
+---
+
+<Layout frontmatter={postData}>
+    <div class="prose max-w-none">
+        <figure>
+            <Image src={voiceChangerImage} alt="Voice Changer" {...IMAGE_PROPS} />
+            <figcaption class="mt-2 italic text-gray-600 text-center">Voice Changer</figcaption>
+        </figure>
+        <p class="text-lg font-medium">Cost: {cost}</p>
+
+        <h2>Manufacturer Information</h2>
+        <p>According to an anonymous source: "The manufacturer is {manufacturer}. Many of their part numbers start with ACxxx."</p>
+        <div class="note">
+            <p>This particular part does not appear to have a publicly available datasheet.</p>
+        </div>
+
+        <h2>Technical Details</h2>
+        <div class="reference">
+            <a href="https://electronics.stackexchange.com/a/491242" target="_blank" rel="noopener noreferrer">
+                Reference: Identifying a JL chip in a Bluetooth device
+            </a>
+        </div>
+
+        <h2>Experience Notes</h2>
+        <p>During the first attempt, I examined an IC and attempted to bridge some of the gaps, which unfortunately resulted in frying the component.</p>
+
+        <div class="note">
+            <p>These components appear to vary significantly in their robustness. Some are much less tolerant of probing and modifications than others.</p>
+        </div>
+
+        <p>I'll need to acquire another unit to continue the analysis.</p>
+    </div>
+</Layout>
+
+<style>
+    .prose {
+        max-width: 65ch;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+    .note {
+        background-color: #fffbeb;
+        border-left: 4px solid #f59e0b;
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    .reference {
+        background-color: #f3f4f6;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin: 1rem 0;
+    }
+    .reference a {
+        color: #3b82f6;
+        text-decoration: none;
+    }
+    .reference a:hover {
+        text-decoration: underline;
+    }
+</style>
