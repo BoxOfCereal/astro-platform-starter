@@ -11,7 +11,11 @@ const allPosts = await Astro.glob('../pages/posts/*.md');
 
 // Sort posts by date in descending order (newest first)
 const posts = allPosts
-    .filter((post) => !post.file.split('/').pop()?.startsWith('_'))
+    .filter((post) => {
+        console.log(post);
+        const fileName = post.file.split('/').pop() || '';
+        return !fileName.startsWith('_') && fileName.endsWith('.md');
+    })
     .sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf())
     .reverse()
     .map((post) => ({

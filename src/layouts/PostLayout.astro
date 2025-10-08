@@ -45,6 +45,11 @@ function formatDate(dateString) {
             </span>
         </div>
         <div>
+            <div itemprop="articleBody">
+                <slot />
+            </div>
+        </div>
+        <div>
             <span itemprop="description">{frontmatter.description}</span>
         </div>
         <div>
@@ -52,11 +57,6 @@ function formatDate(dateString) {
         </div>
         <div>
             <span itemprop="image">{frontmatter.image.url}</span>
-        </div>
-        <div>
-            <div itemprop="articleBody">
-                <slot />
-            </div>
         </div>
     </div>
 </Layout>
