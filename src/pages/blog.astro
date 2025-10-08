@@ -1,35 +1,40 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Markdown from '../components/Markdown.astro';
 
-const explainer = `
-Blog
-`;
+// Import all Markdown and Astro posts dynamically
+const mdPosts = import.meta.glob('../pages/posts/*.md', { eager: true });
+const astroPosts = import.meta.glob('../pages/posts/*.astro', { eager: true });
 
-// Import all markdown files from the posts directory
-const allPosts = await Astro.glob('../pages/posts/*.md');
+// Merge both file types
+const allPosts = { ...mdPosts, ...astroPosts };
 
-// Sort posts by date in descending order (newest first)
-const posts = allPosts
-    .filter((post) => {
-        console.log(post);
-        const fileName = post.file.split('/').pop() || '';
-        return !fileName.startsWith('_') && fileName.endsWith('.md');
+// Normalize and prepare the list
+const posts = Object.entries(allPosts)
+    .filter(([path, post]) => {
+        const fileName = path.split('/').pop() || '';
+        return !fileName.startsWith('_'); // skip private posts
     })
-    .sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf())
-    .reverse()
-    .map((post) => ({
-        title: post.frontmatter.title || 'Untitled Post',
-        slug: post.file.split('/').pop()?.replace(/\.md$/, ''),
-        date: post.frontmatter.date,
-        description: post.frontmatter.description
-    }));
+    .map(([path, post]) => {
+        // Handle frontmatter from Markdown and Astro exports
+        const frontmatter = post.frontmatter || {};
+        const fileName = path.split('/').pop() || '';
+
+        return {
+            title: frontmatter.title || post.title || 'Untitled Post',
+            slug: fileName.replace(/\.(md|astro)$/, ''),
+            date: frontmatter.date || null,
+            description: frontmatter.description || null
+        };
+    })
+    .sort((a, b) => {
+        const aDate = a.date ? new Date(a.date).valueOf() : 0;
+        const bDate = b.date ? new Date(b.date).valueOf() : 0;
+        return bDate - aDate;
+    });
 ---
 
 <Layout title="Blog">
     <h1 class="mb-10">Blog</h1>
-    <h2>Posts</h2>
-
     <ul class="space-y-6">
         {
             posts.map((post) => (
@@ -39,7 +44,11 @@ const posts = allPosts
                     </a>
                     {post.date && (
                         <p class="text-sm text-gray-500 mt-1">
-                            {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                            {new Date(post.date).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                            })}
                         </p>
                     )}
                     {post.description && <p class="text-gray-600 mt-2">{post.description}</p>}
