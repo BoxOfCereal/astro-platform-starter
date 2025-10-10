@@ -1,6 +1,7 @@
 ---
-import Layout from '../../layouts/PostLayout.astro';
+import voiceChangerImage from '../../assets/fixed/voice-changer/voice_changer_1.jpg';
 
+import Layout from '../../layouts/PostLayout.astro';
 const title = 'CB Radio Voice Changer Teardown';
 const description = 'Analysis and teardown of a CB radio voice changer module';
 const pubDate = new Date('2025-10-06');
@@ -8,8 +9,8 @@ const tags = ['electronics', 'teardown', 'reverse-engineering', 'audio'];
 const cost = '$5';
 const manufacturer = 'Zuhai Jie Li (http://www.zh-jieli.com/)';
 import { Image } from 'astro:assets';
-
-import voiceChangerImage from '../../assets/fixed/voice-changer/voice_changer_1.jpg';
+const imageWidth = 800 / 2;
+const imageHeight = 600 / 2;
 
 const postData = {
     title,
@@ -29,15 +30,15 @@ const IMAGE_PROPS = {
     width: '100%',
     height: '100%',
     formats: ['avif', 'webp', 'jpg'],
-    quality: 80,
+    quality: 100,
     rotate: 0
 };
 ---
 
 <Layout frontmatter={postData}>
     <div class="prose max-w-none">
-        <figure>
-            <Image src={voiceChangerImage} alt="Voice Changer" {...IMAGE_PROPS} />
+        <figure class="max-w-2xl mx-auto my-4">
+            <Image src={voiceChangerImage} alt="Voice Changer" {...IMAGE_PROPS} width={imageWidth} height={imageHeight} />
             <figcaption class="mt-2 italic text-gray-600 text-center">Voice Changer</figcaption>
         </figure>
         <p class="text-lg font-medium">Cost: {cost}</p>
@@ -47,6 +48,22 @@ const IMAGE_PROPS = {
         <div class="note">
             <p>This particular part does not appear to have a publicly available datasheet.</p>
         </div>
+
+        <Image
+            src="../../assets/fixed/voice-changer/voice_changer_1.jpg"
+            alt="A picture of how cramped the voice changer is"
+            {...IMAGE_PROPS}
+            width={imageWidth}
+            height={imageHeight}
+        />
+        <p>Unfortunately there's not really a whole lot of room for the switches that I haveThey would work perfect too</p>
+        <Image
+            src="../../assets/fixed/voice-changer/voice_changer_2.jpg"
+            alt="A picture ofsome switches I got off Amazon"
+            {...IMAGE_PROPS}
+            width={imageWidth}
+            height={imageHeight}
+        />
 
         <h2>Technical Details</h2>
         <div class="reference">
@@ -59,15 +76,31 @@ const IMAGE_PROPS = {
         <p>The very first one I cracked openand probed I immediately broke. lol /</p>
         <p>So I did the only reasonable thing and I went out and I bought three more</p>
 
+        <small
+            >Interestingly enough I went to the Hobby Lobby websiteto look at the toyand the page hashorrible reviews lmao
+            <a href="https://www.hobbylobby.com/crafts-hobbies/kids-crafts-activities/games-toys/voice-changer/p/81146155">Hobby Lobby Voice Changer</a>
+
+            >I thought it would work but it doesn't I give it a 1mil- out of 10 hate it I find it hilarious that even people trying to use the toy correctlyAre
+            having difficulty with itOne star rating LOL
+        </small>
+
         <h2>Problems</h2>
+
+        <h3>Problem 1</h3>
         <p>
             There are two problemsthatneed to be addressed for this to be successfulI need to have6.35 MMM jacks one for the mic and one for thespeaker and I
             need to be able to switch this on and leave this onI don't need that but I would I would like that
         </p>
 
-        <Image src="../../assets/fixed/voice-changer/voice_changer_1.jpg" alt="A picture of how cramped the voice changer is" {...IMAGE_PROPS} />
-        <p>Unfortunately there's not really a whole lot of room for the switches that I haveThey would work perfect too</p>
-        <Image src="../../assets/fixed/voice-changer/voice_changer_2.jpg" alt="A picture ofsome switches I got off Amazon" {...IMAGE_PROPS} />
+        <h3>Problem 2: dead speaker</h3>
+        <p>The second problem I run into is thatspeakersthat come with the machine are dead.</p>
+
+        <p>
+            I double checked to make sure I wired the TRS jackcorrectly. So on the pins that are supposed to go to the speaker I put alligator clips and went to
+            another speaker. And I got sound from all of the effects. I mentioned this because I have another unit where only one effect works.
+        </p>
+
+        <h3>Problem 3:</h3>
     </div>
 </Layout>
 
