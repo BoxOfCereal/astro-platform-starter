@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
-
 import Layout from './Layout.astro';
+
 const { frontmatter } = Astro.props;
 
 function formatDate(dateString) {
@@ -13,50 +13,114 @@ function formatDate(dateString) {
         day: 'numeric'
     }).format(date);
 }
+
+// Set default values for optional frontmatter
+const meta = {
+    title: frontmatter.title || 'Untitled Post',
+    description: frontmatter.description || '',
+    pubDate: frontmatter.pubDate || new Date().toISOString(),
+    lastMod: frontmatter.lastMod || frontmatter.pubDate || new Date().toISOString(),
+    author: frontmatter.author || 'Anonymous',
+    tags: frontmatter.tags || [],
+    image: frontmatter.image || {
+        url: new URL('/images/default-og.jpg', Astro.url.origin).toString(),
+        alt: 'Default post image'
+    }
+};
 ---
 
-<Layout title={frontmatter.title}>
-    <div itemscope itemtype="https://schema.org/BlogPosting">
-        <div itemprop="headline">{frontmatter.title}</div>
-        <meta itemprop="image" content="https://example.com/photos/1x1/photo.jpg" />
-        <meta itemprop="image" content="https://example.com/photos/4x3/photo.jpg" />
-        <img itemprop="image" src="https://example.com/photos/16x9/photo.jpg" />
-        <div>
-            <span itemprop="datePublished" content={frontmatter.pubDate}>
-                {formatDate(frontmatter.pubDate)}
-            </span>
+<Layout title={meta.title} description={meta.description}>
+    <!-- center content -->
+    <div itemscope itemtype="https://schema.org/BlogPosting" class="flex flex-col items-center">
+        <h1 itemprop="headline">{meta.title}</h1>
+
+        {
+            meta.image && meta.image.url && (
+                <>
+                    <meta itemprop="image" content={meta.image.url} />
+                    {meta.image.alt && <meta itemprop="imageAlt" content={meta.image.alt} />}
+                </>
+            )
+        }
+
+        <div class="post-meta">
+            <time datetime={meta.pubDate} itemprop="datePublished">
+                {formatDate(meta.pubDate)}
+            </time>
+
             {
-                frontmatter.lastMod && (
-                    <>
-                        (last modified
-                        <span itemprop="dateModified" content={frontmatter.lastMod}>
-                            {formatDate(frontmatter.lastMod)}
-                        </span>
-                    </>
+                meta.lastMod && meta.lastMod !== meta.pubDate && (
+                    <span class="last-modified">
+                        (last modified:{' '}
+                        <time datetime={meta.lastMod} itemprop="dateModified">
+                            {formatDate(meta.lastMod)}
+                        </time>
+                        )
+                    </span>
                 )
             }
-        </div>
-        <div>
-            by
-            <span itemprop="author" itemscope itemtype="https://schema.org/Person">
-                <a itemprop="url" href="/about">
-                    <span itemprop="name">{frontmatter.author}</span>
+
+            <span class="author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                by <a href="/about" itemprop="url">
+                    <span itemprop="name">{meta.author}</span>
                 </a>
             </span>
         </div>
-        <div>
-            <div itemprop="articleBody">
-                <slot />
-            </div>
-        </div>
-        <div>
-            <span itemprop="description">{frontmatter.description}</span>
-        </div>
-        <div>
-            <span itemprop="tags">{frontmatter.tags.join(', ')}</span>
-        </div>
-        <div>
-            <span itemprop="image">{frontmatter.image.url}</span>
-        </div>
+
+        <main itemprop="articleBody">
+            <slot />
+        </main>
+
+        {
+            meta.description && (
+                <div class="post-description" itemprop="description">
+                    {meta.description}
+                </div>
+            )
+        }
+
+        {
+            meta.tags && meta.tags.length > 0 && (
+                <div class="post-tags">
+                    {meta.tags.map((tag) => (
+                        <span class="tag" itemprop="keywords">
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+            )
+        }
     </div>
 </Layout>
+
+<style>
+    .post-meta {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+    }
+    .post-meta time {
+        font-weight: 500;
+    }
+    .last-modified {
+        margin: 0 0.5rem;
+    }
+    .post-description {
+        margin: 2rem 0;
+        font-style: italic;
+        color: var(--text-secondary);
+    }
+    .post-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 2rem;
+    }
+    .tag {
+        background: var(--accent-bg);
+        color: var(--accent);
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+    }
+</style>

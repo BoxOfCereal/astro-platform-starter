@@ -1,5 +1,7 @@
 ---
-import voiceChangerImage from '../../assets/fixed/voice-changer/voice_changer_1.jpg';
+import voiceChangerImage0 from '../../assets/fixed/voice-changer/voice_changer_0.jpg';
+import voiceChangerImage1 from '../../assets/fixed/voice-changer/voice_changer_1.jpg';
+import voiceChangerImage2 from '../../assets/fixed/voice-changer/voice_changer_2.jpg';
 
 import Layout from '../../layouts/PostLayout.astro';
 const title = 'CB Radio Voice Changer Teardown';
@@ -18,7 +20,7 @@ const postData = {
     pubDate,
     tags,
     image: {
-        url: voiceChangerImage.src
+        url: voiceChangerImage0.src
     },
     author: 'Your Name'
 };
@@ -38,7 +40,7 @@ const IMAGE_PROPS = {
 <Layout frontmatter={postData}>
     <div class="prose max-w-none">
         <figure class="max-w-2xl mx-auto my-4">
-            <Image src={voiceChangerImage} alt="Voice Changer" {...IMAGE_PROPS} width={imageWidth} height={imageHeight} />
+            <Image src={voiceChangerImage0} alt="Voice Changer" {...IMAGE_PROPS} width={imageWidth} height={imageHeight} />
             <figcaption class="mt-2 italic text-gray-600 text-center">Voice Changer</figcaption>
         </figure>
         <p class="text-lg font-medium">Cost: {cost}</p>
@@ -49,21 +51,9 @@ const IMAGE_PROPS = {
             <p>This particular part does not appear to have a publicly available datasheet.</p>
         </div>
 
-        <Image
-            src="../../assets/fixed/voice-changer/voice_changer_1.jpg"
-            alt="A picture of how cramped the voice changer is"
-            {...IMAGE_PROPS}
-            width={imageWidth}
-            height={imageHeight}
-        />
+        <Image src={voiceChangerImage1} alt="A picture of how cramped the voice changer is" {...IMAGE_PROPS} width={imageWidth} height={imageHeight} />
         <p>Unfortunately there's not really a whole lot of room for the switches that I haveThey would work perfect too</p>
-        <Image
-            src="../../assets/fixed/voice-changer/voice_changer_2.jpg"
-            alt="A picture ofsome switches I got off Amazon"
-            {...IMAGE_PROPS}
-            width={imageWidth}
-            height={imageHeight}
-        />
+        <Image src={voiceChangerImage2} alt="A picture ofsome switches I got off Amazon" {...IMAGE_PROPS} width={imageWidth} height={imageHeight} />
 
         <h2>Technical Details</h2>
         <div class="reference">
