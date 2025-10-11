@@ -1,1 +1,27 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+    @apply mb-4; /* Adds 1rem (16px) of margin to the bottom of all headings */
+}
+
+/* Optional: Add different margins for different heading levels */
+.markdown h1 {
+    @apply text-4xl;
+}
+.markdown h2 {
+    @apply text-3xl;
+}
+.markdown h3 {
+    @apply text-2xl;
+}
+.markdown h4 {
+    @apply text-xl;
+}
+.markdown h5 {
+    @apply text-lg;
+}
