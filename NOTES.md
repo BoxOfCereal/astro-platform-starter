@@ -1,3 +1,7 @@
+# User notes
+
+I can go into the globals.css file and add my own css styles.
+
 # Image Styling in Astro
 
 This document contains information and examples for working with images in Astro components.
@@ -8,12 +12,12 @@ This document contains information and examples for working with images in Astro
 
 ```astro
 <div class="max-w-2xl mx-auto my-4">
-    <Image 
-        src={imageVariable} 
-        alt="Descriptive alt text" 
+    <Image
+        src={imageVariable}
+        alt="Descriptive alt text"
         width={800}
         height={600}
-        {...IMAGE_PROPS} 
+        {...IMAGE_PROPS}
     />
 </div>
 ```
@@ -24,12 +28,12 @@ The `IMAGE_PROPS` object contains default styling for images:
 
 ```javascript
 const IMAGE_PROPS = {
-    loading: 'lazy',
-    decoding: 'async',
-    class: 'rounded-lg',
-    formats: ['avif', 'webp', 'jpg'],
-    quality: 100,
-    rotate: 0
+  loading: 'lazy',
+  decoding: 'async',
+  class: 'rounded-lg',
+  formats: ['avif', 'webp', 'jpg'],
+  quality: 100,
+  rotate: 0
 };
 ```
 
@@ -56,21 +60,21 @@ For a responsive grid of images:
 ```astro
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <div class="max-w-full">
-        <Image 
-            src={image1} 
-            alt="First image" 
+        <Image
+            src={image1}
+            alt="First image"
             width={600}
             height={400}
-            {...IMAGE_PROPS} 
+            {...IMAGE_PROPS}
         />
     </div>
     <div class="max-w-full">
-        <Image 
-            src={image2} 
-            alt="Second image" 
+        <Image
+            src={image2}
+            alt="Second image"
             width={600}
             height={400}
-            {...IMAGE_PROPS} 
+            {...IMAGE_PROPS}
         />
     </div>
 </div>
@@ -80,9 +84,9 @@ For a responsive grid of images:
 
 ```astro
 <div class="w-full my-4">
-    <Image 
-        src={fullWidthImage} 
-        alt="Full width image" 
+    <Image
+        src={fullWidthImage}
+        alt="Full width image"
         width={1200}
         height={800}
         class="w-full h-auto rounded-lg"
@@ -95,12 +99,12 @@ For a responsive grid of images:
 
 ```astro
 <figure class="max-w-2xl mx-auto my-8">
-    <Image 
-        src={imageWithCaption} 
-        alt="Image with caption" 
+    <Image
+        src={imageWithCaption}
+        alt="Image with caption"
         width={800}
         height={600}
-        {...IMAGE_PROPS} 
+        {...IMAGE_PROPS}
     />
     <figcaption class="text-center text-sm text-gray-500 mt-2">
         This is a caption for the image above.
@@ -119,15 +123,18 @@ For a responsive grid of images:
 ## Common Issues
 
 ### Image Not Displaying
+
 - Check if the image path is correct
 - Verify the image is in the correct directory
 - Ensure the image import statement is correct
 
 ### Blurry Images
+
 - Make sure the `width` and `height` match the image's aspect ratio
 - Use high enough resolution images for the display size
 
 ### TypeScript Errors
+
 - If you see TypeScript errors with the Image component, ensure you're using the correct import:
   ```astro
   import { Image } from 'astro:assets';

@@ -12,6 +12,7 @@
 /* Optional: Add different margins for different heading levels */
 .markdown h1 {
     @apply text-4xl;
+    @apply mb-4;
 }
 .markdown h2 {
     @apply text-3xl;
