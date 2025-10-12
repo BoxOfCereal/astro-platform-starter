@@ -157,8 +157,9 @@ export const frontmatter = {
             width={imageWidth}
             height={imageHeight}
         >
+            <p>Remove the six solder joints that hold the USB female port on the board.</p>
+            <p>They are located on the bottom directly underneath the port.</p>
             <ul>
-                <li>Remove the six solder joints that hold the USB female port on the board.</li>
                 <ul>
                     <li>Use desoldering pump to remove the solder joints.</li>
                     <li>If the large posts give you trouble,Using your soldering iron to push them down alternating left and rightcan help get them out.</li>
@@ -260,68 +261,8 @@ export const frontmatter = {
             <p>Connect the power and the data cables to the interface and connect it to your computer.</p>
         </StepFigure>
 
-        <StepFigure
-            src={asio_img}
-            alt="AKAI EIE interface, cover open, wires connected"
-            title="Test the interface"
-            titleLevel="h3"
-            stepNumber={10}
-            fit="contain"
-        >
-            <p>Connect the power and the data cables to the interface and connect it to your computer.</p>
-        </StepFigure>
-
-        <p>Now it's time to take a desoldering pump, heat up the solder on the board, and remove it.</p>
-
-        <p>
-            <strong>Q:</strong> What is the ideal temperature to set the soldering iron to desolder and remove the joints?<br />
-            <strong>A:</strong>
-            <a href="https://www.build-electronic-circuits.com/right-soldering-temperature/"> Right soldering temperature guide </a>
-            — somewhere between 200°C and 400°C (392°F–752°F). It's best to experiment within this range.
-        </p>
-
-        <p>I'm going to set my soldering iron to <strong>644°C</strong>.</p>
-        <small>Tip: Scotch tape makes a great heat sink.</small>
-
-        <StepFigure src={akai_eie_13} alt="Desoldered port" title="Desoldering Process" titleLevel="h3" stepNumber={10} width={imageWidth} height={imageHeight}>
-            <p>After applying heat and using a desoldering pump, the old port should come free. Be patient and work carefully.</p>
-        </StepFigure>
-
-        <StepFigure src={akai_eie_14} alt="Broken port pieces" title="Old Port Removed" titleLevel="h3" stepNumber={11} width={imageWidth} height={imageHeight}>
-            <p>The old port after removal. Note the damaged pins that are causing the connection issues.</p>
-        </StepFigure>
-
-        <details>
-            <summary>Click to see the desoldered port</summary>
-            <p>
-                This was very difficult and took me several days. After removing most of the solder with a pump, I had to heat each individual pin and wiggle
-                the broken USB port free. I ended up destroying the original port in the process — which I don't recommend.
-            </p>
-        </details>
-
-        <p>I've put the board back in but won't put the cover on yet in case the repair failed — I don't want to unscrew everything again.</p>
-
-        <StepFigure
-            src={akai_eie_15}
-            alt="Interface reassembled without cover"
-            title="Reassembly"
-            titleLevel="h3"
-            stepNumber={12}
-            width={imageWidth}
-            height={imageHeight}
-        >
-            <p>The interface reassembled with the new USB port installed. The cover is left off for initial testing.</p>
-        </StepFigure>
-
-        <p><strong>Success!</strong></p>
-
-        <p>
-            ASIO is reading my interface just like before.<br />
-            Phew!
-        </p>
-
-        <StepFigure src={akai_eie_11} alt="Final reassembled unit" title="Repair Complete" titleLevel="h3" width={imageWidth} height={imageHeight}>
-            <p>The fully reassembled AKAI EIE with the new USB port working perfectly.</p>
+        <StepFigure src={asio_img} alt="ASIO settings" title="Test EIE on computer" titleLevel="h3" stepNumber={10} fit="contain">
+            <p>The interface shows up in the asio options, meaning that it's getting power and data!!</p>
         </StepFigure>
 
         <h3>Summary</h3>
