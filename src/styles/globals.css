@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import './cutom.css';
 
 @theme {
     --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -155,16 +156,4 @@
         --btn-px: 1.5rem;
         --btn-py: 1.125rem;
     }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    @apply mb-4;
-}
-p {
-    @apply mb-4;
 }
