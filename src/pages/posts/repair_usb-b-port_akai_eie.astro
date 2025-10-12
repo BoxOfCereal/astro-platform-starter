@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../../layouts/PostLayout.astro';
+import StepFigure from '../../components/StepFigure.astro';
 import usb_b_female_port from '../../assets/fixed/usb-b-female-port/usb_b_female_port.jpg';
 import akai_eie_0 from '../../assets/fixed/akai-eie/akai_eie_0.jpg';
 import akai_eie_1 from '../../assets/fixed/akai-eie/akai_eie_1.jpg';
@@ -19,22 +20,13 @@ import akai_eie_13 from '../../assets/fixed/akai-eie/akai_eie_13.jpg';
 import akai_eie_14 from '../../assets/fixed/akai-eie/akai_eie_14.jpg';
 import akai_eie_15 from '../../assets/fixed/akai-eie/akai_eie_15.jpg';
 
-const imageWidth = 800 / 2;
-const imageHeight = 600 / 2;
-
-const IMAGE_PROPS = {
-    loading: 'lazy',
-    decoding: 'async',
-    class: 'rounded-lg',
-    formats: ['avif', 'webp', 'jpg'],
-    quality: 100,
-    rotate: 0
-};
+const imageWidth = 800;
+const imageHeight = 600;
 
 export const frontmatter = {
     title: 'Repair USB B Female Port AKAI EIE',
     pubDate: '2025-10-07',
-    lastMod: '2025-10-07',
+    lastMod: '2025-10-12',
     description: 'Repair USB B Female Port AKAI EIE',
     author: 'NS',
     image: {
@@ -48,12 +40,7 @@ export const frontmatter = {
 <Layout frontmatter={frontmatter}>
     <p>This is a repair log for repairing the USB type B female port located on the back of the interface.</p>
 
-    <div class="flex justify-center my-6">
-        <div class="">
-            <Image src={akai_eie_0} alt="Front view of Akai EIE interface" width={imageWidth} height={imageHeight} class="mx-auto" {...IMAGE_PROPS} />
-        </div>
-    </div>
-    <p class="mb-6"></p>
+    <StepFigure src={akai_eie_0} alt="Front view of Akai EIE interface" title="AKAI EIE Interface" titleLevel="h2" width={imageWidth} height={imageHeight} />
 
     <h2 class="mb-6">Difficulty</h2>
     <p class="mb-6">Medium</p>
@@ -80,62 +67,124 @@ export const frontmatter = {
         <h2 class="mb-6">Motivation</h2>
         <p class="mb-6">
             I normally would not try something for the first time on a necessary and somewhat costly piece of equipment. I've also had it for probably 10 years
-            so there's some sentimental value. But the port crapped out and I need the audio interface for practice. And if that weren'tenough reasons I really
+            so there's some sentimental value. But the port crapped out and I need the audio interface for practice. And if that weren't enough reasons I really
             don't wanna buy a new one.
         </p>
         <h2 class="mb-6">Log</h2>
 
         <h3 class="mb-6">Outer Case Removal</h3>
         <p>
-            There are eight screwsfor thecase, but only the top four need to be removed. (I figured that out after) I used a 6T star bit to remove the screws.
+            There are eight screws for the case, but only the top four need to be removed. (I figured that out after) I used a 6T star bit to remove the screws.
         </p>
 
-        <div class="max-w-2xl mx-auto my-4">
-            <Image src={akai_eie_2} alt="Screws on the bottom of the interface" width={800 / 2} height={600 / 2} {...IMAGE_PROPS} />
-        </div>
-        <div class="max-w-2xl mx-auto my-4">
-            <Image src={akai_eie_3} alt="Overhead viewwithout the cover" width={800 / 2} height={600 / 2} {...IMAGE_PROPS} />
-        </div>
-        <h3 class="mb-6">Disconnect ribbon cables</h3>
+        <StepFigure
+            src={akai_eie_2}
+            alt="Screws on the bottom of the interface"
+            title="Bottom Screws"
+            titleLevel="h4"
+            stepNumber={1}
+            width={imageWidth}
+            height={imageHeight}
+        >
+            <p>Locate and remove the four screws on the bottom of the interface using a 6T star bit.</p>
+        </StepFigure>
+
+        <StepFigure
+            src={akai_eie_3}
+            alt="Overhead view without the cover"
+            title="Top View Without Cover"
+            titleLevel="h4"
+            stepNumber={2}
+            width={imageWidth}
+            height={imageHeight}
+        >
+            <p>After removing the top cover, you'll see the internal components. Be careful not to touch any sensitive electronics.</p>
+        </StepFigure>
+
+        <h3 class="mb-6">Disconnect Ribbon Cables</h3>
         <p>
             Carefully use needle nose pliers to disconnect the three ribbon cables pictured. I alternated lifting left and right sides of the retention latch
-            Until the ribbon cable came loose.
+            until the ribbon cable came loose.
         </p>
 
-        <div class="max-w-2xl mx-auto my-4">
-            <Image src={akai_eie_4} alt="Interface with screws removed" width={800 / 2} height={600 / 2} {...IMAGE_PROPS} />
-        </div>
+        <StepFigure
+            src={akai_eie_4}
+            alt="Interface with screws removed"
+            title="Ribbon Cable Connections"
+            titleLevel="h4"
+            stepNumber={3}
+            width={imageWidth}
+            height={imageHeight}
+        >
+            <p>Locate and carefully disconnect the three ribbon cables. Use needle nose pliers to gently lift the retention latches.</p>
+        </StepFigure>
 
         <p>Unscrew all the screws on the back but be careful because the board will fall once there are no screws remaining.</p>
 
-        <h3 class="mb-6">A closer look</h3>
+        <h3 class="mb-6">A Closer Look</h3>
         <p>Now that the board's free let's set it on the table and take a closer look at what we're dealing with.</p>
-        <div class="max-w-2xl mx-auto my-4">
-            <Image src={akai_eie_5} alt="Case with the top removed" width={800} height={600} {...IMAGE_PROPS} />
-        </div>
 
-        <div class="max-w-2xl mx-auto my-4">
-            <Image src={akai_eie_6} alt="Ribbon cables disconnected" width={800} height={600} {...IMAGE_PROPS} />
-        </div>
+        <StepFigure
+            src={akai_eie_5}
+            alt="Case with the top removed"
+            title="Internal Overview"
+            titleLevel="h4"
+            stepNumber={4}
+            width={imageWidth}
+            height={imageHeight}
+        >
+            <p>This is the main board with the top cover removed. Note the USB port location and surrounding components.</p>
+        </StepFigure>
 
-        <div class="max-w-2xl mx-auto my-4">
-            <Image src={akai_eie_7} alt="Screws unscrewed" width={800} height={600} {...IMAGE_PROPS} />
-        </div>
-        <div class="max-w-2xl mx-auto my-4">
-            <Image src={akai_eie_8} alt="Board removed" width={800} height={600} {...IMAGE_PROPS} />
-        </div>
+        <StepFigure
+            src={akai_eie_6}
+            alt="Ribbon cables disconnected"
+            title="Disconnected Cables"
+            titleLevel="h4"
+            stepNumber={5}
+            width={imageWidth}
+            height={imageHeight}
+        >
+            <p>All ribbon cables have been safely disconnected from the main board.</p>
+        </StepFigure>
+
+        <StepFigure src={akai_eie_7} alt="Screws unscrewed" title="Board Screws" titleLevel="h4" stepNumber={6} width={imageWidth} height={imageHeight}>
+            <p>Remove all remaining screws holding the board in place.</p>
+        </StepFigure>
+
+        <StepFigure src={akai_eie_8} alt="Board removed" title="Board Removed" titleLevel="h4" stepNumber={7} width={imageWidth} height={imageHeight}>
+            <p>The main board has been successfully removed from the case.</p>
+        </StepFigure>
 
         <h3>Replacement</h3>
 
-        <p>Image of the broken USB port with the fixed one above it:</p>
-        <div class="max-w-2xl mx-auto my-4">
-            <Image src={akai_eie_9} alt="Broken USB port with replacement" width={imageWidth} height={imageHeight} {...IMAGE_PROPS} />
-        </div>
+        <StepFigure
+            src={akai_eie_9}
+            alt="Broken USB port with replacement"
+            title="Old vs New USB Port"
+            titleLevel="h4"
+            stepNumber={8}
+            width={imageWidth}
+            height={imageHeight}
+        >
+            <p>Comparison between the broken USB port (bottom) and the replacement (top).</p>
+        </StepFigure>
 
         <p>Now let's carefully desolder the six points of the connector.</p>
-        <div class="max-w-2xl mx-auto my-4">
-            <Image src={akai_eie_10} alt="Close-up of the underside of the broken port" width={imageWidth} height={imageHeight} {...IMAGE_PROPS} />
-        </div>
+
+        <StepFigure
+            src={akai_eie_10}
+            alt="Close-up of the underside of the broken port"
+            title="USB Port Solder Points"
+            titleLevel="h4"
+            stepNumber={9}
+            width={imageWidth}
+            height={imageHeight}
+        >
+            <p>
+                Close-up of the solder points that need to be desoldered. There are six in total - four for the mounting tabs and two for the data connections.
+            </p>
+        </StepFigure>
 
         <p>My soldering iron was not able to heat up enough to desolder the large joints, so I bought a new one and replaced it.</p>
 
@@ -145,32 +194,41 @@ export const frontmatter = {
             <strong>Q:</strong> What is the ideal temperature to set the soldering iron to desolder and remove the joints?<br />
             <strong>A:</strong>
             <a href="https://www.build-electronic-circuits.com/right-soldering-temperature/"> Right soldering temperature guide </a>
-            — somewhere between 200°C and 400°C (392°F–752°F). It’s best to experiment within this range.
+            — somewhere between 200°C and 400°C (392°F–752°F). It's best to experiment within this range.
         </p>
 
         <p>I'm going to set my soldering iron to <strong>644°C</strong>.</p>
         <small>Tip: Scotch tape makes a great heat sink.</small>
 
-        <div class="max-w-2xl mx-auto my-4">
-            <Image src={akai_eie_13} alt="Desoldered port" width={imageWidth} height={imageHeight} {...IMAGE_PROPS} />
-        </div>
-        <div class="max-w-2xl mx-auto my-4">
-            <Image src={akai_eie_14} alt="Broken port pieces" width={imageWidth} height={imageHeight} {...IMAGE_PROPS} />
-        </div>
+        <StepFigure src={akai_eie_13} alt="Desoldered port" title="Desoldering Process" titleLevel="h4" stepNumber={10} width={imageWidth} height={imageHeight}>
+            <p>After applying heat and using a desoldering pump, the old port should come free. Be patient and work carefully.</p>
+        </StepFigure>
+
+        <StepFigure src={akai_eie_14} alt="Broken port pieces" title="Old Port Removed" titleLevel="h4" stepNumber={11} width={imageWidth} height={imageHeight}>
+            <p>The old port after removal. Note the damaged pins that were causing the connection issues.</p>
+        </StepFigure>
 
         <details>
             <summary>Click to see the desoldered port</summary>
             <p>
                 This was very difficult and took me several days. After removing most of the solder with a pump, I had to heat each individual pin and wiggle
-                the broken USB port free. I ended up destroying the original port in the process — which I don’t recommend.
+                the broken USB port free. I ended up destroying the original port in the process — which I don't recommend.
             </p>
         </details>
 
-        <p>I’ve put the board back in but won’t put the cover on yet in case the repair failed — I don’t want to unscrew everything again.</p>
+        <p>I've put the board back in but won't put the cover on yet in case the repair failed — I don't want to unscrew everything again.</p>
 
-        <div class="max-w-2xl mx-auto my-4">
-            <Image src={akai_eie_15} alt="Interface reassembled without cover" width={imageWidth} height={imageHeight} {...IMAGE_PROPS} />
-        </div>
+        <StepFigure
+            src={akai_eie_15}
+            alt="Interface reassembled without cover"
+            title="Reassembly"
+            titleLevel="h4"
+            stepNumber={12}
+            width={imageWidth}
+            height={imageHeight}
+        >
+            <p>The interface reassembled with the new USB port installed. The cover is left off for initial testing.</p>
+        </StepFigure>
 
         <p><strong>Success!</strong></p>
 
@@ -179,9 +237,9 @@ export const frontmatter = {
             Phew!
         </p>
 
-        <div class="max-w-2xl mx-auto my-4">
-            <Image src={akai_eie_11} alt="Final reassembled unit" width={imageWidth} height={imageHeight} {...IMAGE_PROPS} />
-        </div>
+        <StepFigure src={akai_eie_11} alt="Final reassembled unit" title="Repair Complete" titleLevel="h3" width={imageWidth} height={imageHeight}>
+            <p>The fully reassembled AKAI EIE with the new USB port working perfectly.</p>
+        </StepFigure>
 
         <h3>Summary</h3>
 
