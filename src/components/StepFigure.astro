@@ -12,6 +12,7 @@ export interface Props {
     height?: number;
     imageClass?: string;
     size?: 'sm' | 'md' | 'lg';
+    fit?: 'cover' | 'contain' | 'fill' | 'none';
 }
 
 const { 
@@ -20,10 +21,11 @@ const {
     title, 
     titleLevel = 'h2', 
     stepNumber, 
-    width = 800, 
-    height = 600, 
+    width,
+    height,
     imageClass = '',
-    size = 'md'
+    size = 'md',
+    fit = 'cover'
 } = Astro.props;
 
 const sizeClasses = {
@@ -51,12 +53,13 @@ const Heading = titleLevel === 'h2' ? 'h2' : 'h3';
         <Image
             src={src}
             alt={alt}
-            width={width}
-            height={height}
+            {...(width && { width })}
+            {...(height && { height })}
             class={`w-full h-auto ${imageClass}`}
+            style={fit ? { 'object-fit': fit } : {}}
             loading="lazy"
             decoding="async"
-            formats={['avif', 'webp', 'jpg']}
+            format="webp"
             quality={100}
         />
     </div>

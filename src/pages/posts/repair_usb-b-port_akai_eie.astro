@@ -19,6 +19,9 @@ import akai_eie_12 from '../../assets/fixed/akai-eie/akai_eie_12.jpg';
 import akai_eie_13 from '../../assets/fixed/akai-eie/akai_eie_13.jpg';
 import akai_eie_14 from '../../assets/fixed/akai-eie/akai_eie_14.jpg';
 import akai_eie_15 from '../../assets/fixed/akai-eie/akai_eie_15.jpg';
+import akai_eie_16 from '../../assets/fixed/akai-eie/akai_eie_16.jpg';
+import akai_eie_17 from '../../assets/fixed/akai-eie/akai_eie_17.jpg';
+import asio_img from '../../assets/fixed/akai-eie/ASIO4ALLOptions.jpg';
 
 const imageWidth = 800;
 const imageHeight = 600;
@@ -134,56 +137,139 @@ export const frontmatter = {
         </StepFigure>
 
         <StepFigure
-            src={akai_eie_6}
-            alt="Ribbon cables disconnected"
-            title="Disconnected Cables"
-            titleLevel="h4"
+            src={akai_eie_7}
+            alt="Screws unscrewed"
+            title="Comparison between broken and new USB port"
+            titleLevel="h3"
+            stepNumber={4.1}
+            width={imageWidth}
+            height={imageHeight}
+        >
+            <p>Notice the USB port attached to the board is missing the little white square that holds the connector in place.</p>
+        </StepFigure>
+
+        <StepFigure
+            src={akai_eie_8}
+            alt="Six solder joints that hold the USB female port on the board"
+            title="Remove the six solder joints"
+            titleLevel="h3"
             stepNumber={5}
             width={imageWidth}
             height={imageHeight}
         >
-            <p>All ribbon cables have been safely disconnected from the main board.</p>
+            <ul>
+                <li>Remove the six solder joints that hold the USB female port on the board.</li>
+                <ul>
+                    <li>Use desoldering pump to remove the solder joints.</li>
+                    <li>If the large posts give you trouble,Using your soldering iron to push them down alternating left and rightcan help get them out.</li>
+                </ul>
+            </ul>
         </StepFigure>
-
-        <StepFigure src={akai_eie_7} alt="Screws unscrewed" title="Board Screws" titleLevel="h4" stepNumber={6} width={imageWidth} height={imageHeight}>
-            <p>Remove all remaining screws holding the board in place.</p>
-        </StepFigure>
-
-        <StepFigure src={akai_eie_8} alt="Board removed" title="Board Removed" titleLevel="h4" stepNumber={7} width={imageWidth} height={imageHeight}>
-            <p>The main board has been successfully removed from the case.</p>
-        </StepFigure>
-
-        <h3>Replacement</h3>
 
         <StepFigure
             src={akai_eie_9}
             alt="Broken USB port with replacement"
-            title="Old vs New USB Port"
-            titleLevel="h4"
+            title="Port crushed"
+            titleLevel="h3"
+            stepNumber={5.1}
+            width={imageWidth}
+            height={imageHeight}
+        >
+            <p>The four data prongs are visible after crushing the broken port.</p>
+            <p>From here I flip the board upside down heated the prongs and pulled them out with needle nose pliers.</p>
+        </StepFigure>
+
+        <StepFigure
+            src={akai_eie_10}
+            alt="Close up of the solder pointsfrom the board removed"
+            title="Clean board"
+            titleLevel="h3"
+            stepNumber={6}
+            width={imageWidth}
+            height={imageHeight}
+        >
+            <ul>
+                <li>Use a desoldering pump to remove any solder that's left on the board.</li>
+                <li>Alcohol can also be used to clean the surface of the board.</li>
+                <ul>
+                    <li>Be careful not to use anything that has any fibers to wipe the board. They can get stuck on the board.</li>
+                </ul>
+            </ul>
+        </StepFigure>
+
+        <StepFigure
+            src={akai_eie_11}
+            alt="Replacement port on the board, unsoldered"
+            title="Replace the port"
+            titleLevel="h3"
+            stepNumber={7}
+            width={imageWidth}
+            height={imageHeight}
+        >
+            <ul>
+                <li>Put the replacement port on the board.</li>
+            </ul>
+        </StepFigure>
+
+        <StepFigure
+            src={akai_eie_12}
+            alt="Replacement port on the board, unsoldered"
+            title="Solder the port"
+            titleLevel="h3"
+            stepNumber={7}
+            width={imageWidth}
+            height={imageHeight}
+        >
+            <p>The soldering doesn't have to be pretty</p>
+            <p>Just make sure the solder joints are:</p>
+            <ul>
+                <li>NOT TOUCHING</li>
+                <li>Secure</li>
+                <li>Not too large</li>
+            </ul>
+        </StepFigure>
+
+        <StepFigure
+            src={akai_eie_15}
+            alt="Board back in the case"
+            title="Put the board back into the case"
+            titleLevel="h3"
             stepNumber={8}
             width={imageWidth}
             height={imageHeight}
         >
-            <p>Comparison between the broken USB port (bottom) and the replacement (top).</p>
+            <p>
+                Put the board back into the case<p>
+                    <ul>
+                        <li>Screw in the six screws</li>
+                        <li>Reattach the three ribbon cables</li>
+                    </ul>
+                </p>
+            </p>
         </StepFigure>
 
-        <p>Now let's carefully desolder the six points of the connector.</p>
-
         <StepFigure
-            src={akai_eie_10}
-            alt="Close-up of the underside of the broken port"
-            title="USB Port Solder Points"
-            titleLevel="h4"
+            src={akai_eie_16}
+            alt="AKAI EIE interface, cover open,wires connected"
+            title="Test the interface"
+            titleLevel="h3"
             stepNumber={9}
             width={imageWidth}
             height={imageHeight}
         >
-            <p>
-                Close-up of the solder points that need to be desoldered. There are six in total - four for the mounting tabs and two for the data connections.
-            </p>
+            <p>Connect the power and the data cables to the interface and connect it to your computer.</p>
         </StepFigure>
 
-        <p>My soldering iron was not able to heat up enough to desolder the large joints, so I bought a new one and replaced it.</p>
+        <StepFigure
+            src={asio_img}
+            alt="AKAI EIE interface, cover open, wires connected"
+            title="Test the interface"
+            titleLevel="h3"
+            stepNumber={10}
+            fit="contain"
+        >
+            <p>Connect the power and the data cables to the interface and connect it to your computer.</p>
+        </StepFigure>
 
         <p>Now it's time to take a desoldering pump, heat up the solder on the board, and remove it.</p>
 
@@ -197,12 +283,12 @@ export const frontmatter = {
         <p>I'm going to set my soldering iron to <strong>644°C</strong>.</p>
         <small>Tip: Scotch tape makes a great heat sink.</small>
 
-        <StepFigure src={akai_eie_13} alt="Desoldered port" title="Desoldering Process" titleLevel="h4" stepNumber={10} width={imageWidth} height={imageHeight}>
+        <StepFigure src={akai_eie_13} alt="Desoldered port" title="Desoldering Process" titleLevel="h3" stepNumber={10} width={imageWidth} height={imageHeight}>
             <p>After applying heat and using a desoldering pump, the old port should come free. Be patient and work carefully.</p>
         </StepFigure>
 
-        <StepFigure src={akai_eie_14} alt="Broken port pieces" title="Old Port Removed" titleLevel="h4" stepNumber={11} width={imageWidth} height={imageHeight}>
-            <p>The old port after removal. Note the damaged pins that were causing the connection issues.</p>
+        <StepFigure src={akai_eie_14} alt="Broken port pieces" title="Old Port Removed" titleLevel="h3" stepNumber={11} width={imageWidth} height={imageHeight}>
+            <p>The old port after removal. Note the damaged pins that are causing the connection issues.</p>
         </StepFigure>
 
         <details>
@@ -219,7 +305,7 @@ export const frontmatter = {
             src={akai_eie_15}
             alt="Interface reassembled without cover"
             title="Reassembly"
-            titleLevel="h4"
+            titleLevel="h3"
             stepNumber={12}
             width={imageWidth}
             height={imageHeight}
