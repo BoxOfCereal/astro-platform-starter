@@ -1,0 +1,155 @@
+---
+title: Modding GB090324 - Toy Piano
+author: NS
+description: 'Modding a toy piano.'
+image:
+  url: ''
+  alt: ''
+pubDate: 2025-10-16
+lastMod: 2025-10-16
+tags: ['toy piano', 'modding', 'learning in public', 'errors', 'fixes', 'questions', 'answers', 'solutions']
+layout: '../../layouts/PostLayout.astro'
+---
+
+import { Image } from 'astro:assets';
+import image1 from '../../assets/fixed/GE090324/ge090324 (1).jpg';
+import image2 from '../../assets/fixed/GE090324/ge090324 (2).jpg';
+import image3 from '../../assets/fixed/GE090324/ge090324 (3).jpg';
+import image4 from '../../assets/fixed/GE090324/ge090324 (4).jpg';
+import image5 from '../../assets/fixed/GE090324/ge090324 (5).jpg';
+import image6 from '../../assets/fixed/GE090324/ge090324 (6).jpg';
+import image7 from '../../assets/fixed/GE090324/ge090324 (7).jpg';
+import image8 from '../../assets/fixed/GE090324/ge090324 (8).jpg';
+import image9 from '../../assets/fixed/GE090324/ge090324 (9).jpg';
+import image10 from '../../assets/fixed/GE090324/ge090324 (10).jpg';
+import image11 from '../../assets/fixed/GE090324/ge090324 (11).jpg';
+
+<div className="flex justify-center my-4 ">
+  <Image 
+    src={image1} 
+    alt="GB090324" 
+    width={400}
+    className="max-w-full h-auto rounded-lg shadow-xl"
+  />
+</div>
+
+## Intro
+
+I got this piano from my Very thoughtful friend (Who also happens to be a very talented musician with which I am in (Red Shift Andromeda)[https://redshiftandromeda.com/] with.).
+
+<hr />
+
+It's cute, feels more solid than it should be, and has a couple interesting features.
+
+## Features
+
+<div className="flex justify-center my-4">
+  <Image 
+    src={image11} 
+    alt="GB090324" 
+    width={400}
+    className="max-w-full h-auto rounded-lg shadow-xl"
+  />
+</div>
+
+
+
+
+- 3 Drum samples
+- 3 Instrument samples
+- 3 Drumloop samples
+- 1 music loop
+- 3 step volume control
+- kill switch
+
+But the most interesting one is a _record_ and _playback_ that seems to be able to record The sequence of Key presses for a bar and play it back.
+
+## Tear down
+
+### Removal of the case
+Removal of the case is easy enough.There's at least six or so screws in the back.
+
+<div className="flex justify-center my-4">
+  <Image 
+    src={image2} 
+    alt="GB090324" 
+    width={400}
+    className="max-w-full h-auto rounded-lg shadow-xl"
+  />
+</div>
+
+### Close up of the circuit board
+Close up of where the buttons make contact with the circuit board.
+
+<div className="flex justify-center my-4">
+  <Image 
+    src={image5} 
+    alt="GB090324" 
+    width={400}
+    className="max-w-full h-auto rounded-lg shadow-xl"
+  />
+</div>
+
+### Circuit Bending
+I tried for a couple days to really getsome interesting sounds off this simple little board.I got something interesting but it was not repeatable after I solderedcontacts and switches on. 
+
+<div className="flex justify-center my-4">
+  <Image 
+    src={image6} 
+    alt="GB090324" 
+    width={400}
+    className="max-w-full h-auto rounded-lg shadow-xl"
+  />
+</div>
+
+
+## The Mods
+### Feedback
+I added two switches that will introduce feedbackat different frequencies based off which combination is pressed. Unfortunately it's extremely quiet and relation To the notes and other sounds in the keyboard.
+
+<div className="flex justify-center my-4">
+  <Image 
+    src={image7} 
+    alt="GB090324" 
+    width={400}
+    className="max-w-full h-auto rounded-lg shadow-xl"
+  />
+</div>
+
+<div className="flex justify-center my-4">
+  <Image 
+    src={image8} 
+    alt="GB090324" 
+    width={400}
+    className="max-w-full h-auto rounded-lg shadow-xl"
+  />
+</div>
+
+### Jack Output
+I also added the standard switch connector jack output so it can beinterfaced with amps and mixers etc.
+
+<div className="flex justify-center my-4">
+  <Image 
+    src={image9} 
+    alt="GB090324" 
+    width={400}
+    className="max-w-full h-auto rounded-lg shadow-xl"
+  />
+</div>
+
+## Finished 
+It's complete!
+
+<div className="flex justify-center my-4">
+  <Image 
+    src={image10} 
+    alt="GB090324" 
+    width={400}
+    className="max-w-full h-auto rounded-lg shadow-xl"
+  />
+</div>
+
+## Final thoughts
+I spent extra time on this becausemy friend gave it to me so I wanted to try as hard as I could To get something really interesting. But, after 4 or 5 sessions of probing and testing I thought I needed to put a close on the project.
+
+I'm happyI received it and it's going to be a good memento! I hope I can use the recording Functionality in an upcoming project!

@@ -25,3 +25,8 @@ ol {
 li {
     @apply mb-2;
 }
+
+main {
+    @apply mb-6;
+    @apply max-w-3xl mx-auto;
+}
