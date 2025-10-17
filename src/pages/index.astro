@@ -2,10 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Markdown from '../components/Markdown.astro';
 
-const content = `This website is a work in progress(broken). It's kind of just a hobby blog for now. A place where I can post creative things, share my thoughts, cool projects and ask questions and answer them.`;
+const content = `This website is a work in progress (broken). It's kind of just a hobby blog for now. A place where I can post creative things, share my thoughts, cool projects and ask questions and answer them.`;
+
+const goal = `Whatever I write here, I will try my best to make sureTo make my writing simple but informative.`;
 ---
 
 <Layout title="About">
     <h1 class="mb-10">About</h1>
     <Markdown content={content} class="mb-10 text-lg" />
+    <Markdown content={goal} class="mb-10 text-lg" />
 </Layout>

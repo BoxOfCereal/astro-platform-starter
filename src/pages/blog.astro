@@ -3,10 +3,11 @@ import Layout from '../layouts/Layout.astro';
 
 // Import all Markdown and Astro posts dynamically
 const mdPosts = import.meta.glob('../pages/posts/*.md', { eager: true });
+const mdxPosts = import.meta.glob('../pages/posts/*.mdx', { eager: true });
 const astroPosts = import.meta.glob('../pages/posts/*.astro', { eager: true });
 
 // Merge both file types
-const allPosts = { ...mdPosts, ...astroPosts };
+const allPosts = { ...mdPosts, ...mdxPosts, ...astroPosts };
 
 // Normalize and prepare the list
 const posts = Object.entries(allPosts)
@@ -21,7 +22,7 @@ const posts = Object.entries(allPosts)
 
         return {
             title: frontmatter.title || post.title || 'Untitled Post',
-            slug: fileName.replace(/\.(md|astro)$/, ''),
+            slug: fileName.replace(/\.(md|mdx|astro)$/, ''),
             date: frontmatter.date || null,
             description: frontmatter.description || null
         };

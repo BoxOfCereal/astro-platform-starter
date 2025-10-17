@@ -2,6 +2,31 @@
 
 I can go into the globals.css file and add my own css styles.
 
+## Widnsurf context
+
+do sommething like this
+
+```md
+vunderba 1 hour ago | unvote | parent | next [–]
+
+I'm inclined to agree. I've read through the Skill docs and it looks like something I've been doing all along - though I informally referred to it as the "Table of Contents" approach.
+
+Over time I would systematically create separate specialized docs around certain topics and link them in my CLAUDE.md file but noticeably without using the "@" symbol which to my understanding always causes CLAUDE to ingest the linked files resulting in unnecessarily bloating your prompt context.
+
+So my CLAUDE md file would have a header section like this:
+
+# Documentation References
+
+- When adding CSS, refer to: docs/ADDING_CSS.md
+- When adding or incorporating images, refer to: docs/ADDING_IMAGES.md
+- When persisting data for the user, refer to: docs/STORAGE_MANAGER.md
+- When adding logging information, refer to: docs/LOGGER.md
+
+It seems like this is less of a breakthrough and more an iterative improvement towards formalizing this process from a organizational perspective.
+
+reply
+```
+
 # Image Styling in Astro
 
 This document contains information and examples for working with images in Astro components.

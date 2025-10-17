@@ -35,13 +35,13 @@ import image11 from '../../assets/fixed/GE090324/ge090324 (11).jpg';
 
 ## Intro
 
-I got this piano from my Very thoughtful friend (Who also happens to be a very talented musician with which I am in (Red Shift Andromeda)[https://redshiftandromeda.com/] with.).
+I got this lil' piano from my friend (Who also happens to be a member of (Red Shift Andromeda)[https://redshiftandromeda.com/]).
 
 <hr />
 
-It's cute, feels more solid than it should be, and has a couple interesting features.
-
 ## Features
+
+It's cute, feels more solid than it should be, and has a couple interesting features.
 
 <div className="flex justify-center my-4">
   <Image 
@@ -54,7 +54,7 @@ It's cute, feels more solid than it should be, and has a couple interesting feat
 
 
 
-
+### Features
 - 3 Drum samples
 - 3 Instrument samples
 - 3 Drumloop samples
@@ -63,6 +63,18 @@ It's cute, feels more solid than it should be, and has a couple interesting feat
 - kill switch
 
 But the most interesting one is a _record_ and _playback_ that seems to be able to record The sequence of Key presses for a bar and play it back.
+
+### Quirks
+
+#### Out of tune!
+
+When I press the `C` key my tuner reads a detuned `B`. And when I press `C#` I get `C`, but it is out of tune by about `36 cents`.
+
+
+#### Idle Jingle
+
+If left alone for a while, the piano will play a Jingle and cut power to the speaker.
+
 
 ## Tear down
 
@@ -91,7 +103,17 @@ Close up of where the buttons make contact with the circuit board.
 </div>
 
 ### Circuit Bending
-I tried for a couple days to really getsome interesting sounds off this simple little board.I got something interesting but it was not repeatable after I solderedcontacts and switches on. 
+
+I tried for a couple days to really get some interesting sounds off this simple board. I got some interestingresults but they weren't repeatable 😔. 
+
+If you notice the black dot on the board, that's where the main chip and any memory is stored. If that weren't there we would have been able to probably get more interesting results.
+
+
+<details summary="Summary" className="text-white">
+  <summary style="display: none;">Can we remove the dot?</summary>
+  <p>Short story: Yes but</p>
+  <p>Long story: It is More difficult and potentially breaking than I want to deal with.</p>
+</details>
 
 <div className="flex justify-center my-4">
   <Image 
@@ -105,16 +127,8 @@ I tried for a couple days to really getsome interesting sounds off this simple l
 
 ## The Mods
 ### Feedback
-I added two switches that will introduce feedbackat different frequencies based off which combination is pressed. Unfortunately it's extremely quiet and relation To the notes and other sounds in the keyboard.
+I added two switches that will introduce feedback at different frequencies based off which combination is pressed. Unfortunately it's extremely quiet in relation to the notes and other sounds.
 
-<div className="flex justify-center my-4">
-  <Image 
-    src={image7} 
-    alt="GB090324" 
-    width={400}
-    className="max-w-full h-auto rounded-lg shadow-xl"
-  />
-</div>
 
 <div className="flex justify-center my-4">
   <Image 
@@ -142,12 +156,30 @@ It's complete!
 
 <div className="flex justify-center my-4">
   <Image 
+    src={image7} 
+    alt="GB090324" 
+    width={400}
+    className="max-w-full h-auto rounded-lg shadow-xl"
+  />
+</div>
+
+## The sounds
+
+### Drumkit
+
+[Download Drumkit (ZIP)](/GE090324/GE090324.zip)
+
+<div className="flex justify-center my-4">
+  <Image 
     src={image10} 
     alt="GB090324" 
     width={400}
     className="max-w-full h-auto rounded-lg shadow-xl"
   />
 </div>
+
+### Great for metalcore
+It sounds like a littlebit of Nintendo grind :)
 
 ## Final thoughts
 I spent extra time on this becausemy friend gave it to me so I wanted to try as hard as I could To get something really interesting. But, after 4 or 5 sessions of probing and testing I thought I needed to put a close on the project.
