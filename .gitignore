@@ -25,3 +25,8 @@ pnpm-debug.log*
 
 # rules Windsurf
 .rules
+
+/drafts
+
+# Archive
+C:\Users\SeltT\Documents\!A_Astro\astro-platform-starter\src\pages\drafts\Archive
